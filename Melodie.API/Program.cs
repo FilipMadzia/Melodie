@@ -22,4 +22,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run(); // branch protection test
+app.Run();

@@ -21,13 +21,13 @@ namespace Melodie.API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.AlbumEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Album", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ArtistEntityId")
+                    b.Property<Guid?>("ArtistId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -52,19 +52,19 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("UserEntityId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ArtistEntityId");
+                    b.HasIndex("ArtistId");
 
-                    b.HasIndex("UserEntityId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Albums");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.ArtistEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Artist", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,17 +89,17 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("UserEntityId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserEntityId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Artists");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.PlaylistEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Playlist", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -127,17 +127,17 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("UserEntityId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserEntityId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Playlists");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.QueueEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Queue", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -169,13 +169,13 @@ namespace Melodie.API.Migrations
                     b.ToTable("Queues");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.SingleEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Single", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ArtistEntityId")
+                    b.Property<Guid?>("ArtistId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -196,30 +196,30 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("UserEntityId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ArtistEntityId");
+                    b.HasIndex("ArtistId");
 
                     b.HasIndex("TrackEntityId");
 
-                    b.HasIndex("UserEntityId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Singles");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.TrackEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Track", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AlbumEntityId")
+                    b.Property<Guid?>("AlbumId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ArtistEntityId")
+                    b.Property<Guid?>("ArtistId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -231,10 +231,10 @@ namespace Melodie.API.Migrations
                     b.Property<int>("EntityStatus")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("PlaylistEntityId")
+                    b.Property<Guid?>("PlaylistId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("QueueEntityId")
+                    b.Property<Guid?>("QueueId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Title")
@@ -247,25 +247,25 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("UserEntityId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AlbumEntityId");
+                    b.HasIndex("AlbumId");
 
-                    b.HasIndex("ArtistEntityId");
+                    b.HasIndex("ArtistId");
 
-                    b.HasIndex("PlaylistEntityId");
+                    b.HasIndex("PlaylistId");
 
-                    b.HasIndex("QueueEntityId");
+                    b.HasIndex("QueueId");
 
-                    b.HasIndex("UserEntityId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Tracks");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.UserEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -299,90 +299,90 @@ namespace Melodie.API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.AlbumEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Album", b =>
                 {
-                    b.HasOne("Melodie.API.Data.Entities.ArtistEntity", null)
+                    b.HasOne("Melodie.API.Data.Entities.Artist", null)
                         .WithMany("Albums")
-                        .HasForeignKey("ArtistEntityId");
+                        .HasForeignKey("ArtistId");
 
-                    b.HasOne("Melodie.API.Data.Entities.UserEntity", null)
+                    b.HasOne("Melodie.API.Data.Entities.User", null)
                         .WithMany("LikedAlbums")
-                        .HasForeignKey("UserEntityId");
+                        .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.ArtistEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Artist", b =>
                 {
-                    b.HasOne("Melodie.API.Data.Entities.UserEntity", null)
+                    b.HasOne("Melodie.API.Data.Entities.User", null)
                         .WithMany("LikedArtists")
-                        .HasForeignKey("UserEntityId");
+                        .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.PlaylistEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Playlist", b =>
                 {
-                    b.HasOne("Melodie.API.Data.Entities.UserEntity", null)
+                    b.HasOne("Melodie.API.Data.Entities.User", null)
                         .WithMany("Playlists")
-                        .HasForeignKey("UserEntityId");
+                        .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.QueueEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Queue", b =>
                 {
-                    b.HasOne("Melodie.API.Data.Entities.UserEntity", "User")
+                    b.HasOne("Melodie.API.Data.Entities.User", "User")
                         .WithOne("Queue")
-                        .HasForeignKey("Melodie.API.Data.Entities.QueueEntity", "UserId")
+                        .HasForeignKey("Melodie.API.Data.Entities.Queue", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.SingleEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Single", b =>
                 {
-                    b.HasOne("Melodie.API.Data.Entities.ArtistEntity", null)
+                    b.HasOne("Melodie.API.Data.Entities.Artist", null)
                         .WithMany("Singles")
-                        .HasForeignKey("ArtistEntityId");
+                        .HasForeignKey("ArtistId");
 
-                    b.HasOne("Melodie.API.Data.Entities.TrackEntity", "TrackEntity")
+                    b.HasOne("Melodie.API.Data.Entities.Track", "TrackEntity")
                         .WithMany()
                         .HasForeignKey("TrackEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Melodie.API.Data.Entities.UserEntity", null)
+                    b.HasOne("Melodie.API.Data.Entities.User", null)
                         .WithMany("LikedSingles")
-                        .HasForeignKey("UserEntityId");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("TrackEntity");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.TrackEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Track", b =>
                 {
-                    b.HasOne("Melodie.API.Data.Entities.AlbumEntity", null)
+                    b.HasOne("Melodie.API.Data.Entities.Album", null)
                         .WithMany("Tracks")
-                        .HasForeignKey("AlbumEntityId");
+                        .HasForeignKey("AlbumId");
 
-                    b.HasOne("Melodie.API.Data.Entities.ArtistEntity", null)
+                    b.HasOne("Melodie.API.Data.Entities.Artist", null)
                         .WithMany("Tracks")
-                        .HasForeignKey("ArtistEntityId");
+                        .HasForeignKey("ArtistId");
 
-                    b.HasOne("Melodie.API.Data.Entities.PlaylistEntity", null)
+                    b.HasOne("Melodie.API.Data.Entities.Playlist", null)
                         .WithMany("Tracks")
-                        .HasForeignKey("PlaylistEntityId");
+                        .HasForeignKey("PlaylistId");
 
-                    b.HasOne("Melodie.API.Data.Entities.QueueEntity", null)
+                    b.HasOne("Melodie.API.Data.Entities.Queue", null)
                         .WithMany("Tracks")
-                        .HasForeignKey("QueueEntityId");
+                        .HasForeignKey("QueueId");
 
-                    b.HasOne("Melodie.API.Data.Entities.UserEntity", null)
+                    b.HasOne("Melodie.API.Data.Entities.User", null)
                         .WithMany("LikedTracks")
-                        .HasForeignKey("UserEntityId");
+                        .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.AlbumEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Album", b =>
                 {
                     b.Navigation("Tracks");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.ArtistEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Artist", b =>
                 {
                     b.Navigation("Albums");
 
@@ -391,17 +391,17 @@ namespace Melodie.API.Migrations
                     b.Navigation("Tracks");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.PlaylistEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Playlist", b =>
                 {
                     b.Navigation("Tracks");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.QueueEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.Queue", b =>
                 {
                     b.Navigation("Tracks");
                 });
 
-            modelBuilder.Entity("Melodie.API.Data.Entities.UserEntity", b =>
+            modelBuilder.Entity("Melodie.API.Data.Entities.User", b =>
                 {
                     b.Navigation("LikedAlbums");
 

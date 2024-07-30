@@ -35,7 +35,7 @@ namespace Melodie.API.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -46,8 +46,8 @@ namespace Melodie.API.Migrations
                 {
                     table.PrimaryKey("PK_Artists", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Artists_Users_UserEntityId",
-                        column: x => x.UserEntityId,
+                        name: "FK_Artists_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
                 });
@@ -59,7 +59,7 @@ namespace Melodie.API.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -70,8 +70,8 @@ namespace Melodie.API.Migrations
                 {
                     table.PrimaryKey("PK_Playlists", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Playlists_Users_UserEntityId",
-                        column: x => x.UserEntityId,
+                        name: "FK_Playlists_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
                 });
@@ -106,8 +106,8 @@ namespace Melodie.API.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ReleaseDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    ArtistEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UserEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ArtistId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -118,13 +118,13 @@ namespace Melodie.API.Migrations
                 {
                     table.PrimaryKey("PK_Albums", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Albums_Artists_ArtistEntityId",
-                        column: x => x.ArtistEntityId,
+                        name: "FK_Albums_Artists_ArtistId",
+                        column: x => x.ArtistId,
                         principalTable: "Artists",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Albums_Users_UserEntityId",
-                        column: x => x.UserEntityId,
+                        name: "FK_Albums_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
                 });
@@ -135,11 +135,11 @@ namespace Melodie.API.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AlbumEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ArtistEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    PlaylistEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    QueueEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UserEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    AlbumId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ArtistId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    PlaylistId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    QueueId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -150,28 +150,28 @@ namespace Melodie.API.Migrations
                 {
                     table.PrimaryKey("PK_Tracks", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tracks_Albums_AlbumEntityId",
-                        column: x => x.AlbumEntityId,
+                        name: "FK_Tracks_Albums_AlbumId",
+                        column: x => x.AlbumId,
                         principalTable: "Albums",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Tracks_Artists_ArtistEntityId",
-                        column: x => x.ArtistEntityId,
+                        name: "FK_Tracks_Artists_ArtistId",
+                        column: x => x.ArtistId,
                         principalTable: "Artists",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Tracks_Playlists_PlaylistEntityId",
-                        column: x => x.PlaylistEntityId,
+                        name: "FK_Tracks_Playlists_PlaylistId",
+                        column: x => x.PlaylistId,
                         principalTable: "Playlists",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Tracks_Queues_QueueEntityId",
-                        column: x => x.QueueEntityId,
+                        name: "FK_Tracks_Queues_QueueId",
+                        column: x => x.QueueId,
                         principalTable: "Queues",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Tracks_Users_UserEntityId",
-                        column: x => x.UserEntityId,
+                        name: "FK_Tracks_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
                 });
@@ -182,8 +182,8 @@ namespace Melodie.API.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TrackEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ArtistEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UserEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ArtistId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -194,8 +194,8 @@ namespace Melodie.API.Migrations
                 {
                     table.PrimaryKey("PK_Singles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Singles_Artists_ArtistEntityId",
-                        column: x => x.ArtistEntityId,
+                        name: "FK_Singles_Artists_ArtistId",
+                        column: x => x.ArtistId,
                         principalTable: "Artists",
                         principalColumn: "Id");
                     table.ForeignKey(
@@ -205,31 +205,31 @@ namespace Melodie.API.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Singles_Users_UserEntityId",
-                        column: x => x.UserEntityId,
+                        name: "FK_Singles_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Albums_ArtistEntityId",
+                name: "IX_Albums_ArtistId",
                 table: "Albums",
-                column: "ArtistEntityId");
+                column: "ArtistId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Albums_UserEntityId",
+                name: "IX_Albums_UserId",
                 table: "Albums",
-                column: "UserEntityId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Artists_UserEntityId",
+                name: "IX_Artists_UserId",
                 table: "Artists",
-                column: "UserEntityId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Playlists_UserEntityId",
+                name: "IX_Playlists_UserId",
                 table: "Playlists",
-                column: "UserEntityId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Queues_UserId",
@@ -238,9 +238,9 @@ namespace Melodie.API.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Singles_ArtistEntityId",
+                name: "IX_Singles_ArtistId",
                 table: "Singles",
-                column: "ArtistEntityId");
+                column: "ArtistId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Singles_TrackEntityId",
@@ -248,34 +248,34 @@ namespace Melodie.API.Migrations
                 column: "TrackEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Singles_UserEntityId",
+                name: "IX_Singles_UserId",
                 table: "Singles",
-                column: "UserEntityId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tracks_AlbumEntityId",
+                name: "IX_Tracks_AlbumId",
                 table: "Tracks",
-                column: "AlbumEntityId");
+                column: "AlbumId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tracks_ArtistEntityId",
+                name: "IX_Tracks_ArtistId",
                 table: "Tracks",
-                column: "ArtistEntityId");
+                column: "ArtistId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tracks_PlaylistEntityId",
+                name: "IX_Tracks_PlaylistId",
                 table: "Tracks",
-                column: "PlaylistEntityId");
+                column: "PlaylistId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tracks_QueueEntityId",
+                name: "IX_Tracks_QueueId",
                 table: "Tracks",
-                column: "QueueEntityId");
+                column: "QueueId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tracks_UserEntityId",
+                name: "IX_Tracks_UserId",
                 table: "Tracks",
-                column: "UserEntityId");
+                column: "UserId");
         }
 
         /// <inheritdoc />

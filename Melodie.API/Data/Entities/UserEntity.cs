@@ -4,7 +4,7 @@ public class UserEntity : BaseEntity
 {
 	public required string Email { get; set; }
 	public required string Password { get; set; }
-	public QueueEntity Queue { get; set; } = null!;
+	public QueueEntity? Queue { get; set; }
 	public ICollection<PlaylistEntity>? Playlists { get; set; }
 	public ICollection<TrackEntity>? LikedTracks { get; set; }
 	public ICollection<AlbumEntity>? LikedAlbums { get; set; }

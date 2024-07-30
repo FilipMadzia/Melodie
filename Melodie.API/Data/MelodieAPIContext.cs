@@ -13,4 +13,14 @@ public class MelodieAPIContext : DbContext
 
 
     public MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : base(options) { }
+
+	protected override void OnModelCreating(ModelBuilder modelBuilder)
+	{
+		base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<UserEntity>()
+            .HasOne(x => x.Queue)
+            .WithOne(x => x.User)
+            .HasForeignKey<QueueEntity>(x => x.UserId);
+	}
 }

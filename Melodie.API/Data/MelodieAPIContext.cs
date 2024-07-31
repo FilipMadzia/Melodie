@@ -12,8 +12,6 @@ public class MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : Db
     public DbSet<QueueEntity> Queues { get; set; }
     public DbSet<MusicGenreEntity> MusicGenres { get; set; }
 
-    public MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : base(options) { }
-
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
 		base.OnModelCreating(modelBuilder);

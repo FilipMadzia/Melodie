@@ -1,19 +1,18 @@
+using Melodie.API.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MelodieAPIContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MelodieAPIContext") ?? throw new InvalidOperationException("Connection string 'MelodieAPIContext' not found.")));
 
-// Add services to the container.
+builder.Services.AddTransient<AlbumRepository>();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();

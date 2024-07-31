@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Melodie.API.Data.Entities;
+using Melodie.API.Data.Seeders;
 
 public class MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : DbContext(options)
 {
@@ -20,5 +21,7 @@ public class MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : Db
             .HasOne(x => x.Queue)
             .WithOne(x => x.User)
             .HasForeignKey<QueueEntity>(x => x.UserId);
+
+        UserEntitySeeder.Seed(modelBuilder);
 	}
 }

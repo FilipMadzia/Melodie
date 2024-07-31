@@ -23,5 +23,6 @@ public class MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : Db
             .HasForeignKey<QueueEntity>(x => x.UserId);
 
         UserEntitySeeder.Seed(modelBuilder);
+        MusicGenreEntitySeeder.Seed(modelBuilder);
 	}
 }

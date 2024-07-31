@@ -10,6 +10,7 @@ public class MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : Db
     public DbSet<SingleEntity> Singles { get; set; }
     public DbSet<PlaylistEntity> Playlists { get; set; }
     public DbSet<QueueEntity> Queues { get; set; }
+    public DbSet<MusicGenreEntity> MusicGenres { get; set; }
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{

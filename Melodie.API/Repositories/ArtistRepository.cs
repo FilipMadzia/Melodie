@@ -10,20 +10,14 @@ public class ArtistRepository(MelodieAPIContext context) : BaseRepository<Artist
 
     public override async Task<IEnumerable<ArtistEntity>> GetAllAsync() => await _context.Artists
         .Include(x => x.Albums)
-            .ThenInclude(x => x.Tracks)
         .Include(x => x.Singles)
-            .ThenInclude(x => x.TrackEntity)
         .Include(x => x.Tracks)
-            .ThenInclude(x => x.MusicGenres)
         .Where(x => x.EntityStatus == EntityStatus.Active)
         .ToListAsync();
 
     public override async Task<ArtistEntity?> GetById(Guid id) => await _context.Artists
         .Include(x => x.Albums)
-            .ThenInclude(x => x.Tracks)
         .Include(x => x.Singles)
-            .ThenInclude(x => x.TrackEntity)
         .Include(x => x.Tracks)
-            .ThenInclude(x => x.MusicGenres)
         .FirstOrDefaultAsync(x => x.Id == id && x.EntityStatus == EntityStatus.Active);
 }

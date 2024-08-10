@@ -1,5 +1,6 @@
 ﻿using Melodie.API.Data.Entities;
 using Melodie.API.Data.Enums;
+using Melodie.API.Repositories.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace Melodie.API.Repositories;

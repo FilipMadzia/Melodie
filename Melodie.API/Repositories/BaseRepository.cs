@@ -1,4 +1,4 @@
-﻿using Melodie.API.Data.Entities;
+﻿using Melodie.API.Data.Entities.Shared;
 using Melodie.API.Data.Enums;
 using Microsoft.EntityFrameworkCore;
 

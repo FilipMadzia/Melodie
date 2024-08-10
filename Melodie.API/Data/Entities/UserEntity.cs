@@ -1,4 +1,7 @@
-﻿namespace Melodie.API.Data.Entities;
+﻿using Melodie.API.Data.Entities.LikedEntities;
+using Melodie.API.Data.Entities.Shared;
+
+namespace Melodie.API.Data.Entities;
 
 public class UserEntity : BaseEntity
 {
@@ -6,8 +9,8 @@ public class UserEntity : BaseEntity
 	public required string Password { get; set; }
 	public QueueEntity? Queue { get; set; }
 	public ICollection<PlaylistEntity>? Playlists { get; set; }
-	public ICollection<TrackEntity>? LikedTracks { get; set; }
-	public ICollection<AlbumEntity>? LikedAlbums { get; set; }
-	public ICollection<SingleEntity>? LikedSingles { get; set; }
-	public ICollection<ArtistEntity>? LikedArtists { get; set; }
+	public ICollection<LikedTrackEntity>? LikedTracks { get; set; }
+	public ICollection<LikedAlbumEntity>? LikedAlbums { get; set; }
+	public ICollection<LikedSingleEntity>? LikedSingles { get; set; }
+	public ICollection<LikedArtistEntity>? LikedArtists { get; set; }
 }

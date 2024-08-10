@@ -1,4 +1,6 @@
-﻿namespace Melodie.API.Data.Entities;
+﻿using Melodie.API.Data.Entities.Shared;
+
+namespace Melodie.API.Data.Entities;
 
 public class MusicGenreEntity : BaseEntity
 {

@@ -1,6 +1,11 @@
-﻿namespace Melodie.API.Data.Entities;
+﻿using Melodie.API.Data.Entities.Shared;
+using Melodie.API.Data.Entities.TrackEntities;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Melodie.API.Data.Entities;
 
 public class SingleEntity : BaseEntity
 {
-	public required TrackEntity TrackEntity { get; set; }
+	[ForeignKey(nameof(SingleTrackEntity))]
+	public required SingleTrackEntity Track { get; set; }
 }

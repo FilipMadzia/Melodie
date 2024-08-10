@@ -1,7 +1,7 @@
 ﻿using Melodie.API.Data.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace Melodie.API.Data.Entities;
+namespace Melodie.API.Data.Entities.Shared;
 
 public abstract class BaseEntity
 {

@@ -1,17 +1,26 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Melodie.API.Data.Entities;
+using Melodie.API.Data.Entities.LikedEntities;
+using Melodie.API.Data.Entities.TrackEntities;
 using Melodie.API.Data.Seeders;
 
 public class MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : DbContext(options)
 {
-    public DbSet<UserEntity> Users { get; set; }
-    public DbSet<ArtistEntity> Artists { get; set; }
-    public DbSet<TrackEntity> Tracks { get; set; }
-    public DbSet<AlbumEntity> Albums { get; set; }
-    public DbSet<SingleEntity> Singles { get; set; }
-    public DbSet<PlaylistEntity> Playlists { get; set; }
-    public DbSet<QueueEntity> Queues { get; set; }
-    public DbSet<MusicGenreEntity> MusicGenres { get; set; }
+    public required DbSet<UserEntity> Users { get; set; }
+    public required DbSet<ArtistEntity> Artists { get; set; }
+	public required DbSet<TrackEntity> Tracks { get; set; }
+	public required DbSet<AlbumEntity> Albums { get; set; }
+	public required DbSet<SingleEntity> Singles { get; set; }
+	public required DbSet<PlaylistEntity> Playlists { get; set; }
+	public required DbSet<QueueEntity> Queues { get; set; }
+	public required DbSet<MusicGenreEntity> MusicGenres { get; set; }
+	public required DbSet<LikedAlbumEntity> LikedAlbums { get; set; }
+	public required DbSet<LikedArtistEntity> LikedArtists { get; set; }
+	public required DbSet<LikedSingleEntity> LikedSingles { get; set; }
+	public required DbSet<LikedTrackEntity> LikedTracks { get; set; }
+	public required DbSet<AlbumTrackEntity> AlbumTrackEntities { get; set; }
+	public required DbSet<QueueTrackEntity> QueueTrackEntities { get; set; }
+	public required DbSet<SingleTrackEntity> SingleTrackEntities { get; set; }
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{

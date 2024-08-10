@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Melodie.API.Migrations
 {
     [DbContext(typeof(MelodieAPIContext))]
-    partial class MelodieAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20240810142829_TrackManyToMany")]
+    partial class TrackManyToMany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -266,58 +269,6 @@ namespace Melodie.API.Migrations
                     b.HasIndex("TrackEntityId");
 
                     b.ToTable("MusicGenres");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("0ad39e64-0137-400e-9833-5b63e0ee341e"),
-                            CreatedAt = new DateTime(2024, 7, 31, 11, 5, 3, 484, DateTimeKind.Local).AddTicks(8991),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Post-grunge",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("4fc473f9-26a3-41d2-bed6-7a06f96379a2"),
-                            CreatedAt = new DateTime(2024, 7, 31, 11, 5, 3, 484, DateTimeKind.Local).AddTicks(8995),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Hard rock",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("63ad6288-edca-4b6b-acca-5da4e409ff78"),
-                            CreatedAt = new DateTime(2024, 7, 31, 11, 5, 3, 484, DateTimeKind.Local).AddTicks(8998),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Alternative rock",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("56ea9e32-2651-49ce-9712-6e29301874c7"),
-                            CreatedAt = new DateTime(2024, 7, 31, 11, 5, 3, 484, DateTimeKind.Local).AddTicks(9000),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Alternative metal",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("493da5ab-bf5d-4c5b-a75a-20112425af51"),
-                            CreatedAt = new DateTime(2024, 7, 31, 11, 5, 3, 484, DateTimeKind.Local).AddTicks(9002),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Nu metal",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        });
                 });
 
             modelBuilder.Entity("Melodie.API.Data.Entities.PlaylistEntity", b =>
@@ -602,30 +553,6 @@ namespace Melodie.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("4c242883-bc71-4a4d-9b79-7fbf58ff8d2c"),
-                            CreatedAt = new DateTime(2024, 7, 31, 11, 5, 3, 484, DateTimeKind.Local).AddTicks(8896),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            Email = "seed@seed",
-                            EntityStatus = 0,
-                            Password = "seed",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("aef5cf53-01bf-4c10-8d85-9352033e0f56"),
-                            CreatedAt = new DateTime(2024, 7, 31, 11, 5, 3, 484, DateTimeKind.Local).AddTicks(8950),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            Email = "seed2@seed2",
-                            EntityStatus = 0,
-                            Password = "seed2",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        });
                 });
 
             modelBuilder.Entity("Melodie.API.Data.Entities.AlbumEntity", b =>

@@ -5,21 +5,21 @@ using Melodie.API.Data.Entities.TrackEntities;
 
 public class MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : DbContext(options)
 {
-    public DbSet<UserEntity> Users { get; set; } = default!;
-    public DbSet<ArtistEntity> Artists { get; set; } = default!;
-	public DbSet<TrackEntity> Tracks { get; set; } = default!;
-	public DbSet<AlbumEntity> Albums { get; set; } = default!;
-	public DbSet<SingleEntity> Singles { get; set; } = default!;
-	public DbSet<PlaylistEntity> Playlists { get; set; } = default!;
-	public DbSet<QueueEntity> Queues { get; set; } = default!;
-	public DbSet<MusicGenreEntity> MusicGenres { get; set; } = default!;
-	public DbSet<LikedAlbumEntity> LikedAlbums { get; set; } = default!;
-	public DbSet<LikedArtistEntity> LikedArtists { get; set; } = default!;
-	public DbSet<LikedSingleEntity> LikedSingles { get; set; } = default!;
-	public DbSet<LikedTrackEntity> LikedTracks { get; set; } = default!;
-	public DbSet<AlbumTrackEntity> AlbumTrackEntities { get; set; } = default!;
-	public DbSet<QueueTrackEntity> QueueTrackEntities { get; set; } = default!;
-	public DbSet<SingleTrackEntity> SingleTrackEntities { get; set; } = default!;
+    public required DbSet<UserEntity> Users { get; set; }
+    public required DbSet<ArtistEntity> Artists { get; set; }
+	public required DbSet<TrackEntity> Tracks { get; set; }
+	public required DbSet<AlbumEntity> Albums { get; set; }
+	public required DbSet<SingleEntity> Singles { get; set; }
+	public required DbSet<PlaylistEntity> Playlists { get; set; }
+	public required DbSet<QueueEntity> Queues { get; set; }
+	public required DbSet<MusicGenreEntity> MusicGenres { get; set; }
+	public required DbSet<LikedAlbumEntity> LikedAlbums { get; set; }
+	public required DbSet<LikedArtistEntity> LikedArtists { get; set; }
+	public required DbSet<LikedSingleEntity> LikedSingles { get; set; }
+	public required DbSet<LikedTrackEntity> LikedTracks { get; set; }
+	public required DbSet<AlbumTrackEntity> AlbumTrackEntities { get; set; }
+	public required DbSet<QueueTrackEntity> QueueTrackEntities { get; set; }
+	public required DbSet<SingleTrackEntity> SingleTrackEntities { get; set; }
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{

@@ -1,5 +1,6 @@
 ﻿using Melodie.API.Data.Entities;
 using Melodie.API.Data.Enums;
+using Melodie.API.Repositories.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace Melodie.API.Repositories;
@@ -14,6 +15,5 @@ public class AlbumRepository(MelodieAPIContext context) : BaseRepository<AlbumEn
 		.ToListAsync();
 
 	public override async Task<AlbumEntity?> GetById(Guid id) => await _context.Albums
-		.Include(x => x.Tracks)
 		.FirstOrDefaultAsync(x => x.Id == id && x.EntityStatus == EntityStatus.Active);
 }

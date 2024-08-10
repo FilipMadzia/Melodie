@@ -18,7 +18,6 @@ builder.Services.AddTransient<TrackRepository>();
 builder.Services.AddTransient<UserRepository>();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(x =>
 {

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Melodie.API.Migrations
 {
     [DbContext(typeof(MelodieAPIContext))]
-    partial class MelodieAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20240810174506_ArtistEntitySeeder")]
+    partial class ArtistEntitySeeder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,8 +94,8 @@ namespace Melodie.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0c01eed9-0376-48bd-b16f-91217f1665ad"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8611),
+                            Id = new Guid("a4cc7240-8726-4193-acc0-3b8cce6126a0"),
+                            CreatedAt = new DateTime(2024, 8, 10, 19, 45, 5, 624, DateTimeKind.Local).AddTicks(4082),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Three Days Grace",
@@ -101,8 +104,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3f62f85e-6bb6-4451-9f00-74d0060ef6d5"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8618),
+                            Id = new Guid("c9048a62-ec1b-456e-9794-5f2e6c537864"),
+                            CreatedAt = new DateTime(2024, 8, 10, 19, 45, 5, 624, DateTimeKind.Local).AddTicks(4087),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "syudou",
@@ -111,8 +114,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0dc62de0-c14c-412f-8154-a0afd7cb836d"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8620),
+                            Id = new Guid("cd0ecd8e-e1f5-4d57-8c0a-4d0389ac1e23"),
+                            CreatedAt = new DateTime(2024, 8, 10, 19, 45, 5, 624, DateTimeKind.Local).AddTicks(4089),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Gibbs",
@@ -121,8 +124,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("767d8289-6cde-4e1a-ad04-f1bfa6b2c7fa"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8622),
+                            Id = new Guid("c24cc7be-37e9-4e3d-932e-2c8774584892"),
+                            CreatedAt = new DateTime(2024, 8, 10, 19, 45, 5, 624, DateTimeKind.Local).AddTicks(4091),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Ashton Irwin",
@@ -312,8 +315,8 @@ namespace Melodie.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("14b94b47-2307-4edb-874f-f9814b2d6a5f"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8528),
+                            Id = new Guid("d986b817-3fc9-43b7-9adb-de275ddf930d"),
+                            CreatedAt = new DateTime(2024, 8, 10, 19, 45, 5, 624, DateTimeKind.Local).AddTicks(4024),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Post-grunge",
@@ -322,8 +325,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3bd8241d-7db8-4b5e-b1cd-42584229f640"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8532),
+                            Id = new Guid("8bf1ae5e-d9fb-4147-bc42-3ad8aa8ed1cf"),
+                            CreatedAt = new DateTime(2024, 8, 10, 19, 45, 5, 624, DateTimeKind.Local).AddTicks(4028),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Hard rock",
@@ -332,8 +335,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("829cf8a5-d1af-4613-921f-27ffcca29024"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8534),
+                            Id = new Guid("3d616fe5-c7a0-44b5-a810-e5fc27ce09f4"),
+                            CreatedAt = new DateTime(2024, 8, 10, 19, 45, 5, 624, DateTimeKind.Local).AddTicks(4031),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Alternative rock",
@@ -342,8 +345,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1dcd4ad0-4212-4990-a657-fa22aa5a28b5"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8537),
+                            Id = new Guid("e22c363d-afd2-4651-bf10-a31e11c597ed"),
+                            CreatedAt = new DateTime(2024, 8, 10, 19, 45, 5, 624, DateTimeKind.Local).AddTicks(4033),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Alternative metal",
@@ -352,91 +355,11 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("407c97ff-520b-430c-90ba-776d8aa655dc"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8552),
+                            Id = new Guid("68a45255-5c5c-4299-bac1-ff60195381f0"),
+                            CreatedAt = new DateTime(2024, 8, 10, 19, 45, 5, 624, DateTimeKind.Local).AddTicks(4046),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Nu metal",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("25131598-c033-4c17-949b-129383426870"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8556),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "J-Pop",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("a3acfa20-f25a-4d87-a495-082594494a5b"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8558),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Hip-hop",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("4d88109d-f407-450a-ab3d-7e87b84c7b62"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8560),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Pop rock",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("4837958a-8d7f-4186-aa89-e4834f2d3273"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8562),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Pop",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("8f1f8fcb-f0f6-46bc-9286-9561c132efbd"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8565),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Pop punk",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("706cf7b3-8b5e-4b52-9dc3-cce09647916c"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8568),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Power pop",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("8ed5f5e3-6fd8-48ce-978b-0559f5e3be0e"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8570),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Rock",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("4754acfd-591a-4791-bfcf-f72e508e81f4"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8575),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "New wave",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         });
@@ -728,8 +651,8 @@ namespace Melodie.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b17f7faa-46d3-448e-9e80-f5dde629f7c2"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8430),
+                            Id = new Guid("ebd8aeb5-726b-4a90-863f-a9fc70c1391c"),
+                            CreatedAt = new DateTime(2024, 8, 10, 19, 45, 5, 624, DateTimeKind.Local).AddTicks(3922),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             Email = "seed@seed",
                             EntityStatus = 0,
@@ -739,8 +662,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4223c5ad-08b6-4039-8094-0ee03cf70a8e"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8486),
+                            Id = new Guid("91f89a93-37ff-480b-a233-40da5b581735"),
+                            CreatedAt = new DateTime(2024, 8, 10, 19, 45, 5, 624, DateTimeKind.Local).AddTicks(3981),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             Email = "seed2@seed2",
                             EntityStatus = 0,

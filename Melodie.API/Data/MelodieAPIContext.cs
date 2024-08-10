@@ -33,5 +33,6 @@ public class MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : Db
 
         UserEntitySeeder.Seed(modelBuilder);
         MusicGenreEntitySeeder.Seed(modelBuilder);
+		ArtistEntitySeeder.Seed(modelBuilder);
 	}
 }

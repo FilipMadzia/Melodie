@@ -32,7 +32,7 @@ public class AuthController(
 			new Claim(JwtRegisteredClaimNames.Email, loginDto.Email)
 		]);
 
-		var expires = DateTime.UtcNow.AddMinutes(double.Parse(_configuration["Jwt:ExpireTime"]!));
+		var expires = DateTime.UtcNow.AddMinutes(double.Parse(_configuration["Jwt:ExpiresIn"]!));
 
 		var tokenDescriptor = new SecurityTokenDescriptor
 		{

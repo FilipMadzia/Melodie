@@ -14,5 +14,6 @@ public class AlbumRepository(MelodieAPIContext context) : BaseRepository<AlbumEn
 		.ToListAsync();
 
 	public override async Task<AlbumEntity?> GetById(Guid id) => await _context.Albums
+		.Include(x => x.Tracks)
 		.FirstOrDefaultAsync(x => x.Id == id && x.EntityStatus == EntityStatus.Active);
 }

@@ -14,5 +14,6 @@ public class TrackRepository(MelodieAPIContext context) : BaseRepository<TrackEn
         .ToListAsync();
 
     public override async Task<TrackEntity?> GetById(Guid id) => await _context.Tracks
+        .Include(x => x.MusicGenres)
         .FirstOrDefaultAsync(x => x.Id == id && x.EntityStatus == EntityStatus.Active);
 }

@@ -24,7 +24,7 @@ public class UserRepository(MelodieAPIContext context) : BaseRepository<UserEnti
 		.Where(x => x.EntityStatus == EntityStatus.Active)
 		.ToListAsync();
 
-	public override async Task<UserEntity?> GetById(Guid id) => await _context.Users
+	public override async Task<UserEntity?> GetByIdAsync(Guid id) => await _context.Users
 		.Include(x => x.LikedAlbums)
 		.Include(x => x.LikedArtists)
 		.Include(x => x.LikedSingles)

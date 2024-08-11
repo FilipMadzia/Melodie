@@ -14,7 +14,7 @@ public class PlaylistRepository(MelodieAPIContext context) : BaseRepository<Play
         .Where(x => x.EntityStatus == EntityStatus.Active)
         .ToListAsync();
 
-    public override async Task<PlaylistEntity?> GetById(Guid id) => await _context.Playlists
+    public override async Task<PlaylistEntity?> GetByIdAsync(Guid id) => await _context.Playlists
         .Include(x => x.Tracks)
         .FirstOrDefaultAsync(x => x.Id == id && x.EntityStatus == EntityStatus.Active);
 }

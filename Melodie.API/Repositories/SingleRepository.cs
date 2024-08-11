@@ -15,7 +15,7 @@ public class SingleRepository(MelodieAPIContext context) : BaseRepository<Single
         .Where(x => x.EntityStatus == EntityStatus.Active)
         .ToListAsync();
 
-    public override async Task<SingleEntity?> GetById(Guid id) => await _context.Singles
+    public override async Task<SingleEntity?> GetByIdAsync(Guid id) => await _context.Singles
         .Include(x => x.Track)
             .ThenInclude(x => x.Track.MusicGenres)
         .FirstOrDefaultAsync(x => x.Id == id && x.EntityStatus == EntityStatus.Active);

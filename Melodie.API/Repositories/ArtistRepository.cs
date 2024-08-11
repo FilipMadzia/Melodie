@@ -16,7 +16,7 @@ public class ArtistRepository(MelodieAPIContext context) : BaseRepository<Artist
         .Where(x => x.EntityStatus == EntityStatus.Active)
         .ToListAsync();
 
-    public override async Task<ArtistEntity?> GetById(Guid id) => await _context.Artists
+    public override async Task<ArtistEntity?> GetByIdAsync(Guid id) => await _context.Artists
         .Include(x => x.Albums)
         .Include(x => x.Singles)
         .Include(x => x.Tracks)

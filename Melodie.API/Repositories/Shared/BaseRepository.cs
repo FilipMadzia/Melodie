@@ -10,6 +10,6 @@ public abstract class BaseRepository<T>(MelodieAPIContext _context) : IBaseRepos
         .Where(x => x.EntityStatus == EntityStatus.Active)
         .ToListAsync();
 
-    public virtual async Task<T?> GetById(Guid id) => await _context.Set<T>()
+    public virtual async Task<T?> GetByIdAsync(Guid id) => await _context.Set<T>()
         .FirstOrDefaultAsync(x => x.Id == id && x.EntityStatus == EntityStatus.Active);
 }

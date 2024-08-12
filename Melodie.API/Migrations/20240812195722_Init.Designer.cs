@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Melodie.API.Migrations
 {
     [DbContext(typeof(MelodieAPIContext))]
-    [Migration("20240810175153_MusicGenreEntityRemainingArtists")]
-    partial class MusicGenreEntityRemainingArtists
+    [Migration("20240812195722_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,9 +28,6 @@ namespace Melodie.API.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ArtistEntityId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -56,8 +53,6 @@ namespace Melodie.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ArtistEntityId");
 
                     b.ToTable("Albums");
                 });
@@ -94,8 +89,8 @@ namespace Melodie.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0c01eed9-0376-48bd-b16f-91217f1665ad"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8611),
+                            Id = new Guid("b4f6eafa-1290-451d-a6fb-188e3b452824"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 101, DateTimeKind.Local).AddTicks(2960),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Three Days Grace",
@@ -104,8 +99,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3f62f85e-6bb6-4451-9f00-74d0060ef6d5"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8618),
+                            Id = new Guid("2bf59995-b38f-4425-a4a4-649df23594ad"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 101, DateTimeKind.Local).AddTicks(3278),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "syudou",
@@ -114,8 +109,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0dc62de0-c14c-412f-8154-a0afd7cb836d"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8620),
+                            Id = new Guid("b6fb8a2a-4f11-472f-a509-11140619670b"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 101, DateTimeKind.Local).AddTicks(3288),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Gibbs",
@@ -124,11 +119,89 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("767d8289-6cde-4e1a-ad04-f1bfa6b2c7fa"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8622),
+                            Id = new Guid("32b31e13-3897-438f-bd6f-63fc90046db0"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 101, DateTimeKind.Local).AddTicks(3290),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Ashton Irwin",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        });
+                });
+
+            modelBuilder.Entity("Melodie.API.Data.Entities.ArtistMusicGenreEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ArtistId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("EntityStatus")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("MusicGenreId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ArtistMusicGenres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("ff2ecc10-d4a3-4a88-88f5-90fdd9a3e0b1"),
+                            ArtistId = new Guid("b4f6eafa-1290-451d-a6fb-188e3b452824"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 101, DateTimeKind.Local).AddTicks(8529),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityStatus = 0,
+                            MusicGenreId = new Guid("08fb9016-1ac1-4aa6-b868-684da4694757"),
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("6bac9f88-bccd-4a9e-b7a3-6659744dd1a1"),
+                            ArtistId = new Guid("b4f6eafa-1290-451d-a6fb-188e3b452824"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 102, DateTimeKind.Local).AddTicks(15),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityStatus = 0,
+                            MusicGenreId = new Guid("2246ebd4-1087-4e01-b3e3-43b0b468d5e0"),
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("2070d36e-c8df-41a7-bfbc-7d2659feb72f"),
+                            ArtistId = new Guid("b4f6eafa-1290-451d-a6fb-188e3b452824"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 102, DateTimeKind.Local).AddTicks(34),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityStatus = 0,
+                            MusicGenreId = new Guid("9eca5eaf-cec5-45f0-a914-f7c4c762c256"),
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("66b22d70-6ab6-4770-8205-6e7532feb200"),
+                            ArtistId = new Guid("b4f6eafa-1290-451d-a6fb-188e3b452824"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 102, DateTimeKind.Local).AddTicks(39),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityStatus = 0,
+                            MusicGenreId = new Guid("e791e87d-b84f-4fc3-a946-596d3f435963"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         });
@@ -146,11 +219,11 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("EntityId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("EntityStatus")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("LikedId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -162,10 +235,6 @@ namespace Melodie.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("LikedId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("LikedAlbums");
                 });
@@ -182,11 +251,11 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("EntityId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("EntityStatus")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("LikedId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -198,10 +267,6 @@ namespace Melodie.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("LikedId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("LikedArtists");
                 });
@@ -218,11 +283,11 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("EntityId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("EntityStatus")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("LikedId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -234,10 +299,6 @@ namespace Melodie.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("LikedId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("LikedSingles");
                 });
@@ -254,11 +315,11 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("EntityId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("EntityStatus")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("LikedId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -270,10 +331,6 @@ namespace Melodie.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("LikedId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("LikedTracks");
                 });
@@ -297,9 +354,6 @@ namespace Melodie.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("TrackEntityId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
@@ -308,15 +362,13 @@ namespace Melodie.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TrackEntityId");
-
                     b.ToTable("MusicGenres");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("14b94b47-2307-4edb-874f-f9814b2d6a5f"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8528),
+                            Id = new Guid("08fb9016-1ac1-4aa6-b868-684da4694757"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 101, DateTimeKind.Local).AddTicks(5273),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Post-grunge",
@@ -325,8 +377,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3bd8241d-7db8-4b5e-b1cd-42584229f640"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8532),
+                            Id = new Guid("2246ebd4-1087-4e01-b3e3-43b0b468d5e0"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 101, DateTimeKind.Local).AddTicks(5574),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Hard rock",
@@ -335,8 +387,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("829cf8a5-d1af-4613-921f-27ffcca29024"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8534),
+                            Id = new Guid("9eca5eaf-cec5-45f0-a914-f7c4c762c256"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 101, DateTimeKind.Local).AddTicks(5583),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Alternative rock",
@@ -345,101 +397,11 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1dcd4ad0-4212-4990-a657-fa22aa5a28b5"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8537),
+                            Id = new Guid("e791e87d-b84f-4fc3-a946-596d3f435963"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 101, DateTimeKind.Local).AddTicks(5585),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Alternative metal",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("407c97ff-520b-430c-90ba-776d8aa655dc"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8552),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Nu metal",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("25131598-c033-4c17-949b-129383426870"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8556),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "J-Pop",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("a3acfa20-f25a-4d87-a495-082594494a5b"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8558),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Hip-hop",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("4d88109d-f407-450a-ab3d-7e87b84c7b62"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8560),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Pop rock",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("4837958a-8d7f-4186-aa89-e4834f2d3273"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8562),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Pop",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("8f1f8fcb-f0f6-46bc-9286-9561c132efbd"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8565),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Pop punk",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("706cf7b3-8b5e-4b52-9dc3-cce09647916c"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8568),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Power pop",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("8ed5f5e3-6fd8-48ce-978b-0559f5e3be0e"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8570),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "Rock",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
-                        },
-                        new
-                        {
-                            Id = new Guid("4754acfd-591a-4791-bfcf-f72e508e81f4"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8575),
-                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityStatus = 0,
-                            Name = "New wave",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         });
@@ -473,12 +435,7 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("UserEntityId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserEntityId");
 
                     b.ToTable("Playlists");
                 });
@@ -509,9 +466,6 @@ namespace Melodie.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
                     b.ToTable("Queues");
                 });
 
@@ -519,9 +473,6 @@ namespace Melodie.API.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ArtistEntityId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -533,7 +484,7 @@ namespace Melodie.API.Migrations
                     b.Property<int>("EntityStatus")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("SingleTrackEntity")
+                    b.Property<Guid>("TrackId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -543,11 +494,6 @@ namespace Melodie.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ArtistEntityId");
-
-                    b.HasIndex("SingleTrackEntity")
-                        .IsUnique();
 
                     b.ToTable("Singles");
                 });
@@ -564,11 +510,11 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("EntityId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("EntityStatus")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("ForeignEntityId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("TrackId")
                         .HasColumnType("uniqueidentifier");
@@ -581,11 +527,7 @@ namespace Melodie.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ForeignEntityId");
-
-                    b.HasIndex("TrackId");
-
-                    b.ToTable("AlbumTrackEntities");
+                    b.ToTable("AlbumTrack");
                 });
 
             modelBuilder.Entity("Melodie.API.Data.Entities.TrackEntities.QueueTrackEntity", b =>
@@ -600,11 +542,11 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("EntityId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("EntityStatus")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("ForeignEntityId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("TrackId")
                         .HasColumnType("uniqueidentifier");
@@ -617,11 +559,7 @@ namespace Melodie.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ForeignEntityId");
-
-                    b.HasIndex("TrackId");
-
-                    b.ToTable("QueueTrackEntities");
+                    b.ToTable("QueueTrack");
                 });
 
             modelBuilder.Entity("Melodie.API.Data.Entities.TrackEntities.SingleTrackEntity", b =>
@@ -636,6 +574,9 @@ namespace Melodie.API.Migrations
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("EntityId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("EntityStatus")
                         .HasColumnType("int");
 
@@ -650,18 +591,13 @@ namespace Melodie.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TrackId");
-
-                    b.ToTable("SingleTrackEntities");
+                    b.ToTable("SingleTrack");
                 });
 
             modelBuilder.Entity("Melodie.API.Data.Entities.TrackEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ArtistEntityId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -672,9 +608,6 @@ namespace Melodie.API.Migrations
 
                     b.Property<int>("EntityStatus")
                         .HasColumnType("int");
-
-                    b.Property<Guid?>("PlaylistEntityId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -687,10 +620,6 @@ namespace Melodie.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ArtistEntityId");
-
-                    b.HasIndex("PlaylistEntityId");
 
                     b.ToTable("Tracks");
                 });
@@ -731,8 +660,8 @@ namespace Melodie.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b17f7faa-46d3-448e-9e80-f5dde629f7c2"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8430),
+                            Id = new Guid("dfb60c62-69ac-4044-a73a-5b3e5c41aa11"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 98, DateTimeKind.Local).AddTicks(9581),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             Email = "seed@seed",
                             EntityStatus = 0,
@@ -742,8 +671,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4223c5ad-08b6-4039-8094-0ee03cf70a8e"),
-                            CreatedAt = new DateTime(2024, 8, 10, 19, 51, 53, 181, DateTimeKind.Local).AddTicks(8486),
+                            Id = new Guid("f92b3e40-0b64-4637-8837-0cc708669f02"),
+                            CreatedAt = new DateTime(2024, 8, 12, 21, 57, 22, 101, DateTimeKind.Local).AddTicks(842),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             Email = "seed2@seed2",
                             EntityStatus = 0,
@@ -751,239 +680,6 @@ namespace Melodie.API.Migrations
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         });
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.AlbumEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.ArtistEntity", null)
-                        .WithMany("Albums")
-                        .HasForeignKey("ArtistEntityId");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.LikedEntities.LikedAlbumEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.AlbumEntity", "Liked")
-                        .WithMany()
-                        .HasForeignKey("LikedId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Melodie.API.Data.Entities.UserEntity", "User")
-                        .WithMany("LikedAlbums")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Liked");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.LikedEntities.LikedArtistEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.ArtistEntity", "Liked")
-                        .WithMany()
-                        .HasForeignKey("LikedId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Melodie.API.Data.Entities.UserEntity", "User")
-                        .WithMany("LikedArtists")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Liked");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.LikedEntities.LikedSingleEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.SingleEntity", "Liked")
-                        .WithMany()
-                        .HasForeignKey("LikedId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Melodie.API.Data.Entities.UserEntity", "User")
-                        .WithMany("LikedSingles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Liked");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.LikedEntities.LikedTrackEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.TrackEntity", "Liked")
-                        .WithMany()
-                        .HasForeignKey("LikedId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Melodie.API.Data.Entities.UserEntity", "User")
-                        .WithMany("LikedTracks")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Liked");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.MusicGenreEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.TrackEntity", null)
-                        .WithMany("MusicGenres")
-                        .HasForeignKey("TrackEntityId");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.PlaylistEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.UserEntity", null)
-                        .WithMany("Playlists")
-                        .HasForeignKey("UserEntityId");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.QueueEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.UserEntity", "User")
-                        .WithOne("Queue")
-                        .HasForeignKey("Melodie.API.Data.Entities.QueueEntity", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.SingleEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.ArtistEntity", null)
-                        .WithMany("Singles")
-                        .HasForeignKey("ArtistEntityId");
-
-                    b.HasOne("Melodie.API.Data.Entities.TrackEntities.SingleTrackEntity", "Track")
-                        .WithOne("ForeignEntity")
-                        .HasForeignKey("Melodie.API.Data.Entities.SingleEntity", "SingleTrackEntity")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Track");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.TrackEntities.AlbumTrackEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.AlbumEntity", "ForeignEntity")
-                        .WithMany("Tracks")
-                        .HasForeignKey("ForeignEntityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Melodie.API.Data.Entities.TrackEntity", "Track")
-                        .WithMany()
-                        .HasForeignKey("TrackId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ForeignEntity");
-
-                    b.Navigation("Track");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.TrackEntities.QueueTrackEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.QueueEntity", "ForeignEntity")
-                        .WithMany("Tracks")
-                        .HasForeignKey("ForeignEntityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Melodie.API.Data.Entities.TrackEntity", "Track")
-                        .WithMany()
-                        .HasForeignKey("TrackId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ForeignEntity");
-
-                    b.Navigation("Track");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.TrackEntities.SingleTrackEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.TrackEntity", "Track")
-                        .WithMany()
-                        .HasForeignKey("TrackId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Track");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.TrackEntity", b =>
-                {
-                    b.HasOne("Melodie.API.Data.Entities.ArtistEntity", null)
-                        .WithMany("Tracks")
-                        .HasForeignKey("ArtistEntityId");
-
-                    b.HasOne("Melodie.API.Data.Entities.PlaylistEntity", null)
-                        .WithMany("Tracks")
-                        .HasForeignKey("PlaylistEntityId");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.AlbumEntity", b =>
-                {
-                    b.Navigation("Tracks");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.ArtistEntity", b =>
-                {
-                    b.Navigation("Albums");
-
-                    b.Navigation("Singles");
-
-                    b.Navigation("Tracks");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.PlaylistEntity", b =>
-                {
-                    b.Navigation("Tracks");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.QueueEntity", b =>
-                {
-                    b.Navigation("Tracks");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.TrackEntities.SingleTrackEntity", b =>
-                {
-                    b.Navigation("ForeignEntity")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.TrackEntity", b =>
-                {
-                    b.Navigation("MusicGenres");
-                });
-
-            modelBuilder.Entity("Melodie.API.Data.Entities.UserEntity", b =>
-                {
-                    b.Navigation("LikedAlbums");
-
-                    b.Navigation("LikedArtists");
-
-                    b.Navigation("LikedSingles");
-
-                    b.Navigation("LikedTracks");
-
-                    b.Navigation("Playlists");
-
-                    b.Navigation("Queue");
                 });
 #pragma warning restore 612, 618
         }

@@ -2,7 +2,7 @@
 using Melodie.API.Data.Entities;
 using Melodie.API.Data.Entities.LikedEntities;
 using Melodie.API.Data.Entities.TrackEntities;
-using Melodie.API.Data.Seeders;
+using Melodie.API.Data;
 
 public class MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : DbContext(options)
 {
@@ -18,14 +18,25 @@ public class MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : Db
 	public required DbSet<LikedArtistEntity> LikedArtists { get; set; }
 	public required DbSet<LikedSingleEntity> LikedSingles { get; set; }
 	public required DbSet<LikedTrackEntity> LikedTracks { get; set; }
-	public required DbSet<AlbumTrackEntity> AlbumTrackEntities { get; set; }
-	public required DbSet<QueueTrackEntity> QueueTrackEntities { get; set; }
-	public required DbSet<SingleTrackEntity> SingleTrackEntities { get; set; }
+	public required DbSet<AlbumTrackEntity> AlbumTrack { get; set; }
+	public required DbSet<QueueTrackEntity> QueueTrack { get; set; }
+	public required DbSet<SingleTrackEntity> SingleTrack { get; set; }
+	public required DbSet<ArtistMusicGenreEntity> ArtistMusicGenres { get; set; }
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
 		base.OnModelCreating(modelBuilder);
 
-		// TODO: seeders
+		modelBuilder.Entity<UserEntity>()
+			.HasData(DataSeeder.Users);
+
+		modelBuilder.Entity<ArtistEntity>()
+			.HasData(DataSeeder.Artists);
+
+		modelBuilder.Entity<MusicGenreEntity>()
+			.HasData(DataSeeder.MusicGenres);
+
+		modelBuilder.Entity<ArtistMusicGenreEntity>()
+			.HasData(DataSeeder.ArtistMusicGenres);
 	}
 }

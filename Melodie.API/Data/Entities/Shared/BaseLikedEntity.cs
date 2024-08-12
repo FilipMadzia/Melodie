@@ -1,7 +1,7 @@
 ﻿namespace Melodie.API.Data.Entities.Shared;
 
-public abstract class BaseLikedEntity<T> : BaseEntity where T : BaseEntity
+public abstract class BaseLikedEntity : BaseEntity
 {
-    public required UserEntity User { get; set; }
-    public required T Liked { get; set; }
+    public Guid UserId { get; set; }
+    public Guid EntityId { get; set; }
 }

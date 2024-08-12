@@ -6,6 +6,5 @@ namespace Melodie.API.Data.Entities;
 
 public class SingleEntity : BaseEntity
 {
-	[ForeignKey(nameof(SingleTrackEntity))]
-	public required SingleTrackEntity Track { get; set; }
+	public Guid TrackId { get; set; }
 }

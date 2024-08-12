@@ -2,4 +2,4 @@
 
 namespace Melodie.API.Data.Entities.TrackEntities;
 
-public class AlbumTrackEntity : BaseTrackManyToManyEntity<AlbumEntity> { }
+public class AlbumTrackEntity : BaseTrackManyToManyEntity { }

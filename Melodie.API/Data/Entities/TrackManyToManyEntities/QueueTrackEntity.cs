@@ -2,4 +2,4 @@
 
 namespace Melodie.API.Data.Entities.TrackEntities;
 
-public class QueueTrackEntity : BaseTrackManyToManyEntity<QueueEntity> { }
+public class QueueTrackEntity : BaseTrackManyToManyEntity { }

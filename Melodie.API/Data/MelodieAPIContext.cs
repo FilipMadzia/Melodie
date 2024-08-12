@@ -26,13 +26,6 @@ public class MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : Db
 	{
 		base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<UserEntity>()
-            .HasOne(x => x.Queue)
-            .WithOne(x => x.User)
-            .HasForeignKey<QueueEntity>(x => x.UserId);
-
-        UserEntitySeeder.Seed(modelBuilder);
-        MusicGenreEntitySeeder.Seed(modelBuilder);
-		ArtistEntitySeeder.Seed(modelBuilder);
+		// TODO: seeders
 	}
 }

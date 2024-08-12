@@ -1,7 +1,7 @@
 ﻿namespace Melodie.API.Data.Entities.Shared;
 
-public abstract class BaseTrackManyToManyEntity<T> : BaseEntity where T : BaseEntity
+public abstract class BaseTrackManyToManyEntity : BaseEntity
 {
-	public required TrackEntity Track { get; set; }
-	public required T ForeignEntity { get; set; }
+	public Guid TrackId { get; set; }
+	public Guid EntityId { get; set; }
 }

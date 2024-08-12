@@ -2,4 +2,4 @@
 
 namespace Melodie.API.Data.Entities.LikedEntities;
 
-public class LikedArtistEntity : BaseLikedEntity<ArtistEntity> { }
+public class LikedArtistEntity : BaseLikedEntity { }

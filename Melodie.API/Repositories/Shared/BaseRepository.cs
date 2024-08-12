@@ -12,4 +12,10 @@ public abstract class BaseRepository<T>(MelodieAPIContext _context) : IBaseRepos
 
     public virtual async Task<T?> GetByIdAsync(Guid id) => await _context.Set<T>()
         .FirstOrDefaultAsync(x => x.Id == id && x.EntityStatus == EntityStatus.Active);
+
+    public async Task AddAsync(T entity)
+    {
+        await _context.Set<T>().AddAsync(entity);
+        await _context.SaveChangesAsync();
+    }
 }

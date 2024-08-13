@@ -65,10 +65,22 @@ public class DataSeeder
 	{
 		ArtistMusicGenres =
 		[
+			// Three Days Grace
 			new() { ArtistId = Artists[0].Id, MusicGenreId = MusicGenres[0].Id },
 			new() { ArtistId = Artists[0].Id, MusicGenreId = MusicGenres[1].Id },
 			new() { ArtistId = Artists[0].Id, MusicGenreId = MusicGenres[2].Id },
 			new() { ArtistId = Artists[0].Id, MusicGenreId = MusicGenres[3].Id },
+			// syudou
+			new() { ArtistId = Artists[1].Id, MusicGenreId = MusicGenres[4].Id },
+			// Gibbs
+			new() { ArtistId = Artists[2].Id, MusicGenreId = MusicGenres[5].Id },
+			// Ashton Irwin
+			new() { ArtistId = Artists[3].Id, MusicGenreId = MusicGenres[6].Id },
+			new() { ArtistId = Artists[3].Id, MusicGenreId = MusicGenres[7].Id },
+			new() { ArtistId = Artists[3].Id, MusicGenreId = MusicGenres[8].Id },
+			new() { ArtistId = Artists[3].Id, MusicGenreId = MusicGenres[9].Id },
+			new() { ArtistId = Artists[3].Id, MusicGenreId = MusicGenres[10].Id },
+			new() { ArtistId = Artists[3].Id, MusicGenreId = MusicGenres[11].Id }
 		];
 	}
 }

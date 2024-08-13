@@ -1,4 +1,5 @@
 ﻿using Melodie.API.Data.Entities;
+using Melodie.API.Data.Entities.TrackEntities;
 
 namespace Melodie.API.Data;
 
@@ -8,6 +9,9 @@ public class DataSeeder
 	public static List<ArtistEntity> Artists { get; set; } = [];
 	public static List<MusicGenreEntity> MusicGenres { get; set; } = [];
 	public static List<ArtistMusicGenreEntity> ArtistMusicGenres { get; set; } = [];
+	public static List<TrackEntity> Tracks { get; set; } = [];
+	public static List<SingleEntity> Singles { get; set; } = [];
+	public static List<SingleTrackEntity> SingleTracks { get; set; } = [];
 
 	static DataSeeder()
 	{
@@ -15,6 +19,9 @@ public class DataSeeder
 		SeedArtists();
 		SeedMusicGenres();
 		SeedArtistMusicGenres();
+		SeedTracks();
+		SeedSingles();
+		SeedSingleTracks();
 	}
 
 	private static void SeedUsers()
@@ -81,6 +88,32 @@ public class DataSeeder
 			new() { ArtistId = Artists[3].Id, MusicGenreId = MusicGenres[9].Id },
 			new() { ArtistId = Artists[3].Id, MusicGenreId = MusicGenres[10].Id },
 			new() { ArtistId = Artists[3].Id, MusicGenreId = MusicGenres[11].Id }
+		];
+	}
+
+	private static void SeedTracks()
+	{
+		Tracks =
+		[
+			new() { Title = "Break" }
+		];
+	}
+
+	private static void SeedSingles()
+	{
+		Singles =
+		[
+			// Three Days Grace - Break
+			new() { TrackId = Tracks[0].Id, ReleaseDate = new DateOnly(2009, 9, 1) }
+		];
+	}
+
+	private static void SeedSingleTracks()
+	{
+		SingleTracks =
+		[
+			// Three Days Grace - Break
+			new() { EntityId = Singles[0].Id }
 		];
 	}
 }

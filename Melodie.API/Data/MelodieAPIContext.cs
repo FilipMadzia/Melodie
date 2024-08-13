@@ -38,5 +38,14 @@ public class MelodieAPIContext(DbContextOptions<MelodieAPIContext> options) : Db
 
 		modelBuilder.Entity<ArtistMusicGenreEntity>()
 			.HasData(DataSeeder.ArtistMusicGenres);
+
+		modelBuilder.Entity<TrackEntity>()
+			.HasData(DataSeeder.Tracks);
+
+		modelBuilder.Entity<SingleEntity>()
+			.HasData(DataSeeder.Singles);
+
+		modelBuilder.Entity<SingleTrackEntity>()
+			.HasData(DataSeeder.SingleTracks);
 	}
 }

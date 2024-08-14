@@ -1,14 +1,16 @@
-﻿using Melodie.API.Dtos.Auth;
+﻿using Melodie.API.Data.Entities;
+using Melodie.API.Dtos.Auth;
 using Melodie.API.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Melodie.API.Controllers;
 
-[Route("[controller]")]
+[Route("[controller]/[action]")]
 [ApiController]
 public class AuthController(
 	IConfiguration _configuration,
@@ -19,7 +21,7 @@ public class AuthController(
 	{
 		var userEntity = await _userRepository.GetByEmailAsync(loginDto.Email);
 
-		if(userEntity == null || loginDto.Password != userEntity.Password)
+		if (userEntity == null || loginDto.Password != userEntity.Password)
 			return Unauthorized();
 
 		var issuer = _configuration["Jwt:Issuer"];
@@ -49,4 +51,22 @@ public class AuthController(
 
 		return Ok(jwtToken);
 	}
+	[HttpPost]
+	public async Task<IActionResult> Register([FromBody] RegisterDto RegisterDto)
+	{
+        var existingUser = await _userRepository.GetByEmailAsync(RegisterDto.Email);
+        if (existingUser != null)
+        {
+            return Conflict("User already exist");
+        }
+
+        var newUser = new UserEntity
+        {
+            Email = RegisterDto.Email,
+            Password = RegisterDto.Password,
+        };
+
+        await _userRepository.AddAsync(newUser);
+		return(Ok(newUser));
+    }
 }

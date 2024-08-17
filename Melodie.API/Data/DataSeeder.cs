@@ -95,7 +95,17 @@ public class DataSeeder
 	{
 		Tracks =
 		[
-			new() { Title = "Break" }
+			#region Singles
+			// Three Days Grace
+			new() { Title = "Break" },
+			// syudou
+			new() { Title = "Inochizuna" },
+			new() { Title = "yattyattawa" },
+			// Gibbs
+			new() { Title = "Nic na mnie"},
+			// Ashton Irwin
+			new() { Title = "Skinny Skinny" }
+			#endregion
 		];
 	}
 
@@ -103,8 +113,11 @@ public class DataSeeder
 	{
 		Singles =
 		[
-			// Three Days Grace - Break
-			new() { TrackId = Tracks[0].Id, ReleaseDate = new DateOnly(2009, 9, 1) }
+			new() { ArtistId = Artists[0].Id, TrackId = Tracks[0].Id, ReleaseDate = new DateOnly(2009, 9, 1) }, // Three Days Grace - Break
+			new() { ArtistId = Artists[1].Id, TrackId = Tracks[1].Id, ReleaseDate = new DateOnly(2024, 2, 21) }, // syudou - Inochizuna
+			new() { ArtistId = Artists[1].Id, TrackId = Tracks[2].Id, ReleaseDate = new DateOnly(2023, 11, 17) }, // syudou - yattyattawa
+			new() { ArtistId = Artists[2].Id, TrackId = Tracks[3].Id, ReleaseDate = new DateOnly(2024, 4, 5) }, // Gibbs - Nic na mnie
+			new() { ArtistId = Artists[3].Id, TrackId = Tracks[4].Id, ReleaseDate = new DateOnly(2020, 9, 24) } // Ashton Irwin - Skinny Skinny
 		];
 	}
 
@@ -112,8 +125,11 @@ public class DataSeeder
 	{
 		SingleTracks =
 		[
-			// Three Days Grace - Break
-			new() { EntityId = Singles[0].Id }
+			new() { TrackId = Tracks[0].Id, EntityId = Singles[0].Id }, // Three Days Grace - Break
+			new() { TrackId = Tracks[1].Id, EntityId = Singles[1].Id }, // syudou - Inochizuna
+			new() { TrackId = Tracks[2].Id, EntityId = Singles[2].Id }, // // syudou - yattyattawa
+			new() { TrackId = Tracks[3].Id, EntityId = Singles[3].Id }, // Gibbs - Nic na mnie
+			new() { TrackId = Tracks[4].Id, EntityId = Singles[4].Id } // Ashton Irwin - Skinny Skinny
 		];
 	}
 }

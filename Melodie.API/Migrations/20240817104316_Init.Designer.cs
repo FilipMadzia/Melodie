@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Melodie.API.Migrations
 {
     [DbContext(typeof(MelodieAPIContext))]
-    [Migration("20240813193533_Init")]
+    [Migration("20240817104316_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -28,6 +28,9 @@ namespace Melodie.API.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ArtistId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -89,8 +92,8 @@ namespace Melodie.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5ea691bc-c715-4f6a-b269-d1f24b775184"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(701),
+                            Id = new Guid("608a8a2f-c35f-469f-9200-8be082ccd625"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 907, DateTimeKind.Local).AddTicks(6432),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Three Days Grace",
@@ -99,8 +102,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a85be9e6-10ec-49ac-b128-57d62c381186"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(991),
+                            Id = new Guid("98850abe-a85d-4f31-832f-6fca01023bfc"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 907, DateTimeKind.Local).AddTicks(6714),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "syudou",
@@ -109,8 +112,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("143344c4-c357-410f-bd08-f30de66ac46f"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(999),
+                            Id = new Guid("fbe92a61-d187-463b-9dde-b4f090caeecf"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 907, DateTimeKind.Local).AddTicks(6723),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Gibbs",
@@ -119,8 +122,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cc45cd11-c522-4785-ae6c-22b7af97c4e6"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(1001),
+                            Id = new Guid("7308c47f-2918-4e02-b6aa-25895536414a"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 907, DateTimeKind.Local).AddTicks(6725),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Ashton Irwin",
@@ -163,133 +166,133 @@ namespace Melodie.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("11e9fed8-2a6c-4ef1-af1b-3ff2ad4e0412"),
-                            ArtistId = new Guid("5ea691bc-c715-4f6a-b269-d1f24b775184"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(1437),
+                            Id = new Guid("1b37b8b0-ef09-45be-a533-4f311a961f2d"),
+                            ArtistId = new Guid("608a8a2f-c35f-469f-9200-8be082ccd625"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(6268),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
-                            MusicGenreId = new Guid("4f5da7ab-e93f-47c6-b118-95ec29f206ae"),
+                            MusicGenreId = new Guid("4c3bf51c-b3f2-407c-9aea-95f4606e57fa"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            Id = new Guid("e6488bd0-bbe5-40b3-9e2a-4d04be13418e"),
-                            ArtistId = new Guid("5ea691bc-c715-4f6a-b269-d1f24b775184"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(3460),
+                            Id = new Guid("43ebef7b-4b72-43b9-a538-30712c8dd8c4"),
+                            ArtistId = new Guid("608a8a2f-c35f-469f-9200-8be082ccd625"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(7929),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
-                            MusicGenreId = new Guid("5242acc6-ec8e-4790-9125-ba63b1894ac6"),
+                            MusicGenreId = new Guid("97407a1a-26ec-4e55-ba42-de5241fe3334"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            Id = new Guid("6972d035-0869-4cd0-b13d-041de54fa8c1"),
-                            ArtistId = new Guid("5ea691bc-c715-4f6a-b269-d1f24b775184"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(3481),
+                            Id = new Guid("f3812f72-0a0d-4ae5-9d8f-75189225265e"),
+                            ArtistId = new Guid("608a8a2f-c35f-469f-9200-8be082ccd625"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(7949),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
-                            MusicGenreId = new Guid("4bd4e850-e517-48d9-afed-06ea21f37f73"),
+                            MusicGenreId = new Guid("1532f07c-fb9a-46fa-b293-8809b41fa2f7"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            Id = new Guid("2d892ed1-39bb-4e48-9e59-5f8eecdd8bf0"),
-                            ArtistId = new Guid("5ea691bc-c715-4f6a-b269-d1f24b775184"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(3496),
+                            Id = new Guid("e284489f-9879-4335-bcfb-aa777e1d90e2"),
+                            ArtistId = new Guid("608a8a2f-c35f-469f-9200-8be082ccd625"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(7959),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
-                            MusicGenreId = new Guid("26cf26a5-2a94-4e3d-af6e-f9ea822551c7"),
+                            MusicGenreId = new Guid("d37169ce-f63e-4f85-a746-91d4f1dc2799"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            Id = new Guid("87ea187c-22ee-48c9-b349-7c6d680ddb20"),
-                            ArtistId = new Guid("a85be9e6-10ec-49ac-b128-57d62c381186"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(3501),
+                            Id = new Guid("e24137b4-0cbe-473c-b1c8-11fcb6d26a6d"),
+                            ArtistId = new Guid("98850abe-a85d-4f31-832f-6fca01023bfc"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(7964),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
-                            MusicGenreId = new Guid("901b5528-7a47-486b-a902-0b3ce32ffee6"),
+                            MusicGenreId = new Guid("ea8363d0-0a24-4388-aebf-9375659f515f"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            Id = new Guid("ad19115c-047d-4aa0-967b-6fa9943a11c1"),
-                            ArtistId = new Guid("143344c4-c357-410f-bd08-f30de66ac46f"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(3506),
+                            Id = new Guid("c5b3fc74-5cd9-4140-b1ef-e204f2790b2a"),
+                            ArtistId = new Guid("fbe92a61-d187-463b-9dde-b4f090caeecf"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(7969),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
-                            MusicGenreId = new Guid("c38dd7f4-3151-4650-95be-5be92304fbca"),
+                            MusicGenreId = new Guid("74f836ff-6b7a-4276-a315-5efe3b347f80"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            Id = new Guid("fca1b221-e924-49f3-a3fd-9c5872b066f7"),
-                            ArtistId = new Guid("cc45cd11-c522-4785-ae6c-22b7af97c4e6"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(3511),
+                            Id = new Guid("3549a770-0240-4c9a-8a64-e64814971681"),
+                            ArtistId = new Guid("7308c47f-2918-4e02-b6aa-25895536414a"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(7974),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
-                            MusicGenreId = new Guid("9333bafb-9af5-431b-993b-a45d1c9e7553"),
+                            MusicGenreId = new Guid("d5ae2db2-8042-4e61-9497-a9eb86e5818f"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            Id = new Guid("8c819d28-ac3d-4b6e-9adc-7dee3f6805ed"),
-                            ArtistId = new Guid("cc45cd11-c522-4785-ae6c-22b7af97c4e6"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(3516),
+                            Id = new Guid("a5322655-97eb-43f3-ab9c-7b8277b5e260"),
+                            ArtistId = new Guid("7308c47f-2918-4e02-b6aa-25895536414a"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(7978),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
-                            MusicGenreId = new Guid("2fe32e20-5dd1-439d-b9c4-58606198fa07"),
+                            MusicGenreId = new Guid("187d526b-95ba-4665-b39d-74136d3f02f4"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            Id = new Guid("946cd5f5-a57d-4cd0-bce9-418920b4ce09"),
-                            ArtistId = new Guid("cc45cd11-c522-4785-ae6c-22b7af97c4e6"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(3521),
+                            Id = new Guid("4a56f37b-d20d-451f-b5b2-9d43c0287986"),
+                            ArtistId = new Guid("7308c47f-2918-4e02-b6aa-25895536414a"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(7983),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
-                            MusicGenreId = new Guid("467d0e6f-24bf-4367-90c4-9cd3c9c10448"),
+                            MusicGenreId = new Guid("5c969512-a829-49fb-83b4-9baacc165d79"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            Id = new Guid("18f70795-2d7d-4598-90fe-954d8896c572"),
-                            ArtistId = new Guid("cc45cd11-c522-4785-ae6c-22b7af97c4e6"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(3526),
+                            Id = new Guid("a1b2cdea-97f6-497f-ae40-ada84aaddca6"),
+                            ArtistId = new Guid("7308c47f-2918-4e02-b6aa-25895536414a"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(7987),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
-                            MusicGenreId = new Guid("2082c19f-4779-46c7-99e8-a15052c497f1"),
+                            MusicGenreId = new Guid("db2878c3-9c9f-40b2-bd5d-082cc2d61c5a"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            Id = new Guid("cc6d3254-58fa-45fc-9ccd-ffc93a08eb64"),
-                            ArtistId = new Guid("cc45cd11-c522-4785-ae6c-22b7af97c4e6"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(3531),
+                            Id = new Guid("a130a5d8-396e-4af0-b20d-e2966a59c9cf"),
+                            ArtistId = new Guid("7308c47f-2918-4e02-b6aa-25895536414a"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(7992),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
-                            MusicGenreId = new Guid("15212128-9808-4e5c-8785-22710bc2f720"),
+                            MusicGenreId = new Guid("d8b5d2f9-9c5f-4444-8ad2-80d0de7a5e93"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
-                            Id = new Guid("1112ecec-650a-4031-af21-e119f4b105f7"),
-                            ArtistId = new Guid("cc45cd11-c522-4785-ae6c-22b7af97c4e6"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(3540),
+                            Id = new Guid("27f4572a-d512-48de-ad8d-7db2f3886fcb"),
+                            ArtistId = new Guid("7308c47f-2918-4e02-b6aa-25895536414a"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(7999),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
-                            MusicGenreId = new Guid("5beb7ac0-0b1b-4683-8f9a-7781e45eeabe"),
+                            MusicGenreId = new Guid("71787e50-98f2-421d-8cb9-a7147032e5ba"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         });
@@ -455,8 +458,8 @@ namespace Melodie.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4f5da7ab-e93f-47c6-b118-95ec29f206ae"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4119),
+                            Id = new Guid("4c3bf51c-b3f2-407c-9aea-95f4606e57fa"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(136),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Post-grunge",
@@ -465,8 +468,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5242acc6-ec8e-4790-9125-ba63b1894ac6"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4420),
+                            Id = new Guid("97407a1a-26ec-4e55-ba42-de5241fe3334"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(436),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Hard rock",
@@ -475,8 +478,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4bd4e850-e517-48d9-afed-06ea21f37f73"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4429),
+                            Id = new Guid("1532f07c-fb9a-46fa-b293-8809b41fa2f7"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(445),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Alternative rock",
@@ -485,8 +488,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("26cf26a5-2a94-4e3d-af6e-f9ea822551c7"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4432),
+                            Id = new Guid("d37169ce-f63e-4f85-a746-91d4f1dc2799"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(447),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Alternative metal",
@@ -495,8 +498,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("901b5528-7a47-486b-a902-0b3ce32ffee6"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4434),
+                            Id = new Guid("ea8363d0-0a24-4388-aebf-9375659f515f"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(449),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Nu metal",
@@ -505,8 +508,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c38dd7f4-3151-4650-95be-5be92304fbca"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4436),
+                            Id = new Guid("74f836ff-6b7a-4276-a315-5efe3b347f80"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(452),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "J-Pop",
@@ -515,8 +518,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9333bafb-9af5-431b-993b-a45d1c9e7553"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4439),
+                            Id = new Guid("d5ae2db2-8042-4e61-9497-a9eb86e5818f"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(454),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Hip-hop",
@@ -525,8 +528,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2fe32e20-5dd1-439d-b9c4-58606198fa07"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4441),
+                            Id = new Guid("187d526b-95ba-4665-b39d-74136d3f02f4"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(456),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Pop rock",
@@ -535,8 +538,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("467d0e6f-24bf-4367-90c4-9cd3c9c10448"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4447),
+                            Id = new Guid("5c969512-a829-49fb-83b4-9baacc165d79"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(462),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Pop",
@@ -545,8 +548,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2082c19f-4779-46c7-99e8-a15052c497f1"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4450),
+                            Id = new Guid("db2878c3-9c9f-40b2-bd5d-082cc2d61c5a"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(465),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Pop punk",
@@ -555,8 +558,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("15212128-9808-4e5c-8785-22710bc2f720"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4452),
+                            Id = new Guid("d8b5d2f9-9c5f-4444-8ad2-80d0de7a5e93"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(467),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Power pop",
@@ -565,8 +568,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5beb7ac0-0b1b-4683-8f9a-7781e45eeabe"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4454),
+                            Id = new Guid("71787e50-98f2-421d-8cb9-a7147032e5ba"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(469),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "Rock",
@@ -575,8 +578,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5961ec45-4d10-4a0a-8902-0ec20022d3d9"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 784, DateTimeKind.Local).AddTicks(4456),
+                            Id = new Guid("592a073e-0079-4f72-a47b-e2df4b8d0c94"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 908, DateTimeKind.Local).AddTicks(471),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Name = "New wave",
@@ -653,6 +656,9 @@ namespace Melodie.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("ArtistId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -681,12 +687,61 @@ namespace Melodie.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f094f816-653c-4c43-aa88-74a36a69b3c8"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(7416),
+                            Id = new Guid("259a594f-1322-4993-89c6-b11e3f7e3bba"),
+                            ArtistId = new Guid("608a8a2f-c35f-469f-9200-8be082ccd625"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(4244),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             ReleaseDate = new DateOnly(2009, 9, 1),
-                            TrackId = new Guid("ad956407-0384-4946-898d-c269e78013d8"),
+                            TrackId = new Guid("a1b787af-ed92-45ec-990d-5182d1ae0d9a"),
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("c1b8f045-ac32-4bca-afd4-3f1d2897a206"),
+                            ArtistId = new Guid("98850abe-a85d-4f31-832f-6fca01023bfc"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(5505),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityStatus = 0,
+                            ReleaseDate = new DateOnly(2024, 2, 21),
+                            TrackId = new Guid("e0d58df5-4841-47f5-9cca-9349f92a5bb7"),
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("27e447d1-3f42-45fa-840a-b2d544f9b93b"),
+                            ArtistId = new Guid("98850abe-a85d-4f31-832f-6fca01023bfc"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(5535),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityStatus = 0,
+                            ReleaseDate = new DateOnly(2023, 11, 17),
+                            TrackId = new Guid("719e6fa2-fccf-474b-93df-368f5601def4"),
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("2857111f-e1e0-4080-a473-67c7c3337970"),
+                            ArtistId = new Guid("fbe92a61-d187-463b-9dde-b4f090caeecf"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(5541),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityStatus = 0,
+                            ReleaseDate = new DateOnly(2024, 4, 5),
+                            TrackId = new Guid("46e924c3-cad3-4eb3-a947-ae533eb1d6b2"),
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("eb83f7c7-8442-4097-83b9-24846b0696ee"),
+                            ArtistId = new Guid("7308c47f-2918-4e02-b6aa-25895536414a"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(5547),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityStatus = 0,
+                            ReleaseDate = new DateOnly(2020, 9, 24),
+                            TrackId = new Guid("6b770726-1e00-46d4-b904-45c247628732"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         });
@@ -790,12 +845,56 @@ namespace Melodie.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("bd6dfe3f-1ce8-4f32-b162-90e3e1aa4b7f"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 786, DateTimeKind.Local).AddTicks(302),
+                            Id = new Guid("01a8d865-bfb9-4b5d-b371-067c835bfe83"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(9061),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
-                            EntityId = new Guid("f094f816-653c-4c43-aa88-74a36a69b3c8"),
+                            EntityId = new Guid("259a594f-1322-4993-89c6-b11e3f7e3bba"),
                             EntityStatus = 0,
-                            TrackId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            TrackId = new Guid("a1b787af-ed92-45ec-990d-5182d1ae0d9a"),
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("e8a8ddff-d33e-4463-abab-3739242aca24"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(9867),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityId = new Guid("c1b8f045-ac32-4bca-afd4-3f1d2897a206"),
+                            EntityStatus = 0,
+                            TrackId = new Guid("e0d58df5-4841-47f5-9cca-9349f92a5bb7"),
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("d244c816-5ec3-4831-a73e-2ab3389eed4a"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(9884),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityId = new Guid("27e447d1-3f42-45fa-840a-b2d544f9b93b"),
+                            EntityStatus = 0,
+                            TrackId = new Guid("719e6fa2-fccf-474b-93df-368f5601def4"),
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("a4607573-6778-4302-a640-1a07a27ee5d2"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(9889),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityId = new Guid("2857111f-e1e0-4080-a473-67c7c3337970"),
+                            EntityStatus = 0,
+                            TrackId = new Guid("46e924c3-cad3-4eb3-a947-ae533eb1d6b2"),
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("3121b6ef-d97c-4ae6-99b3-f13d58c71c62"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(9894),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityId = new Guid("eb83f7c7-8442-4097-83b9-24846b0696ee"),
+                            EntityStatus = 0,
+                            TrackId = new Guid("6b770726-1e00-46d4-b904-45c247628732"),
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         });
@@ -833,11 +932,51 @@ namespace Melodie.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ad956407-0384-4946-898d-c269e78013d8"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 785, DateTimeKind.Local).AddTicks(5197),
+                            Id = new Guid("a1b787af-ed92-45ec-990d-5182d1ae0d9a"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(227),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             EntityStatus = 0,
                             Title = "Break",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("e0d58df5-4841-47f5-9cca-9349f92a5bb7"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(507),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityStatus = 0,
+                            Title = "Inochizuna",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("719e6fa2-fccf-474b-93df-368f5601def4"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(516),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityStatus = 0,
+                            Title = "yattyattawa",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("46e924c3-cad3-4eb3-a947-ae533eb1d6b2"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(519),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityStatus = 0,
+                            Title = "Nic na mnie",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("6b770726-1e00-46d4-b904-45c247628732"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 909, DateTimeKind.Local).AddTicks(521),
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EntityStatus = 0,
+                            Title = "Skinny Skinny",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdatedBy = new Guid("00000000-0000-0000-0000-000000000000")
                         });
@@ -879,8 +1018,8 @@ namespace Melodie.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("39b2c64e-6626-4a92-8e0a-e4a22a717989"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 781, DateTimeKind.Local).AddTicks(6691),
+                            Id = new Guid("fec32de7-126c-47c6-956f-02ef170ee1db"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 905, DateTimeKind.Local).AddTicks(2772),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             Email = "seed@seed",
                             EntityStatus = 0,
@@ -890,8 +1029,8 @@ namespace Melodie.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4fa9a124-6a2a-4751-82c0-6f63201e84a6"),
-                            CreatedAt = new DateTime(2024, 8, 13, 21, 35, 32, 783, DateTimeKind.Local).AddTicks(8483),
+                            Id = new Guid("026f9875-97f5-48da-b1bc-f638edb87325"),
+                            CreatedAt = new DateTime(2024, 8, 17, 12, 43, 15, 907, DateTimeKind.Local).AddTicks(4307),
                             CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
                             Email = "seed2@seed2",
                             EntityStatus = 0,

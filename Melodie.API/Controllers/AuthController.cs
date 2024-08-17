@@ -1,4 +1,5 @@
-﻿using Melodie.API.Dtos.Auth;
+﻿using Melodie.API.Data.Entities;
+using Melodie.API.Dtos.Auth;
 using Melodie.API.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace Melodie.API.Controllers;
 
-[Route("[controller]")]
+[Route("[controller]/[action]")]
 [ApiController]
 public class AuthController(
 	IConfiguration _configuration,
@@ -49,4 +50,20 @@ public class AuthController(
 
 		return Ok(jwtToken);
 	}
+	[HttpPost]
+	public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
+	{
+		if(await _userRepository.GetByEmailAsync(registerDto.Email) != null)
+			return Conflict("User already exist");
+
+		var user = new UserEntity
+		{
+			Email = registerDto.Email,
+			Password = registerDto.Password,
+		};
+
+		await _userRepository.AddAsync(user);
+
+		return Created();
+    }
 }

@@ -1,10 +1,10 @@
 ﻿using Melodie.API.Data.Entities.Shared;
-using Melodie.API.Data.Entities.TrackEntities;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Melodie.API.Data.Entities;
 
 public class SingleEntity : BaseEntity
 {
+	public Guid ArtistId { get; set; }
 	public Guid TrackId { get; set; }
+	public DateOnly ReleaseDate { get; set; }
 }

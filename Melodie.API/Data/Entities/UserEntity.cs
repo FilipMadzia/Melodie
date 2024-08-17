@@ -1,5 +1,4 @@
-﻿using Melodie.API.Data.Entities.LikedEntities;
-using Melodie.API.Data.Entities.Shared;
+﻿using Melodie.API.Data.Entities.Shared;
 
 namespace Melodie.API.Data.Entities;
 

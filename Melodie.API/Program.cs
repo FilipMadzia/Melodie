@@ -1,21 +1,15 @@
-using Melodie.API.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using Melodie.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<MelodieAPIContext>(options =>
+builder.Services.AddDbContext<MelodieApiContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MelodieAPIContext") ?? throw new InvalidOperationException("Connection string 'MelodieAPIContext' not found.")));
 
 // Add services to the container.
-builder.Services.AddTransient<AlbumRepository>();
-builder.Services.AddTransient<ArtistRepository>();
-builder.Services.AddTransient<PlaylistRepository>();
-builder.Services.AddTransient<SingleRepository>();
-builder.Services.AddTransient<TrackRepository>();
-builder.Services.AddTransient<UserRepository>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

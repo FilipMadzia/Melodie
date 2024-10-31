@@ -21,7 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Data\Entities\" />
+    <Folder Include="Dtos\" />
     <Folder Include="Migrations\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>

@@ -13,7 +13,7 @@ public abstract class BaseEntity
 	/// <summary>
 	/// Set only if a specific user creates entity
 	/// </summary>
-	public Guid? CreatedBy { get; private set; }
+	public Guid? CreatedBy { get; set; }
 	public Guid? UpdatedBy { get; set; }
 	public EntityStatus EntityStatus { get; set; } = EntityStatus.Active;
 }

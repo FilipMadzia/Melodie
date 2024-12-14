@@ -72,7 +72,7 @@ app.UseCors(x => x
 	.AllowAnyMethod()
 	.AllowAnyHeader()
 	.AllowCredentials()
-	.SetIsOriginAllowed(origin => true));
+	.SetIsOriginAllowed(_ => true));
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

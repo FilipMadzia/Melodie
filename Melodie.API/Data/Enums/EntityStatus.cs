@@ -1,8 +1,8 @@
-﻿namespace Melodie.API.Data.Enums;
+namespace Melodie.API.Data.Enums;
 
 public enum EntityStatus
 {
-    Active,
-    Hidden,
-    Deleted
+	Active,
+	Hidden,
+	Deleted
 }

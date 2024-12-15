@@ -9,4 +9,5 @@ public class MelodieApiContext(DbContextOptions<MelodieApiContext> options) : Db
 	public DbSet<Artist> Artists { get; set; }
 	public DbSet<MusicGenre> MusicGenres { get; set; }
 	public DbSet<Track> Tracks { get; set; }
+	public DbSet<User> Users { get; set; }
 }
